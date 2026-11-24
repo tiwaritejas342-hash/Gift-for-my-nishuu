@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Tanishi ❤️</title>
+  <link href="https://googleapis.com" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #fff0f3 0%, #ffe5ec 50%, #f8edeb 100%);
+      color: #4a3538;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 20px 14px 40px;
+      overflow-x: hidden;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(10px);
+      border-radius: 26px;
+      padding: 26px 20px;
+      max-width: 450px;
+      width: 100%;
+      box-shadow: 0 12px 35px rgba(214, 104, 122, 0.16);
+      border: 1px solid #ffffff;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+      animation: fadeIn 0.8s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .bubu-dudu-top {
+      width: 120px;
+      height: 120px;
+      object-fit: contain;
+      margin: 0 auto 8px;
+      display: block;
+      border-radius: 16px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #ffe5ec;
+      color: #c9184a;
+      font-size: 12px;
+      font-weight: 500;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      color: #800f2f;
+      margin-bottom: 6px;
+    }
+
+    .subtitle {
+      font-size: 13px;
+      color: #7d5a5f;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .poem-box {
+      background: #fff8f9;
+      border-left: 3.5px solid #ff758f;
+      border-radius: 16px;
+      padding: 18px 15px;
+      text-align: left;
+      margin-bottom: 20px;
+      box-shadow: inset 0 0 12px rgba(255, 117, 143, 0.06);
+    }
+
+    .stanza {
+      font-size: 13.5px;
+      line-height: 1.75;
+      color: #3d2b2e;
+      margin-bottom: 15px;
+    }
+
+    .stanza:last-child {
+      margin-bottom: 0;
+    }
+
+    .promise-card {
+      background: linear-gradient(135deg, #fff0f3, #ffe5ec);
+      border: 1px dashed #ff4d6d;
+      border-radius: 18px;
+      padding: 18px 16px;
+      margin-bottom: 22px;
+      text-align: center;
+    }
+
+    .promise-card h3 {
+      font-size: 15px;
+      color: #a4133c;
+      margin-bottom: 8px;
+    }
+
+    .promise-card p {
+      font-size: 13.5px;
+      color: #4a3538;
+      line-height: 1.65;
+      font-weight: 500;
+    }
+
+    /* Mini Game Box */
+    .game-box {
+      background: #ffffff;
+      border: 1px solid #ffd6e0;
+      border-radius: 18px;
+      padding: 16px;
+      margin-bottom: 22px;
+    }
+
+    .game-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #800f2f;
+      margin-bottom: 4px;
+    }
+
+    .game-sub {
+      font-size: 12px;
+      color: #7d5a5f;
+      margin-bottom: 10px;
+    }
+
+    #gameArea {
+      position: relative;
+      width: 100%;
+      height: 150px;
+      background: #fff8f9;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid #ffccd5;
+      margin-bottom: 10px;
+      touch-action: manipulation;
+    }
+
+    .tap-heart {
+      position: absolute;
+      font-size: 26px;
+      cursor: pointer;
+      user-select: none;
+      animation: popIn 0.25s ease;
+    }
+
+    @keyframes popIn {
+      from { transform: scale(0); }
+      to { transform: scale(1); }
+    }
+
+    .game-stats {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12.5px;
+      font-weight: 500;
+      color: #a4133c;
+    }
+
+    .mini-btn {
+      background: #ff4d6d;
+      color: white;
+      border: none;
+      padding: 6px 14px;
+      border-radius: 10px;
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    /* Final Question Box */
+    .ask-box {
+      background: #fff8f9;
+      border: 1.5px solid #ffb3c1;
+      border-radius: 20px;
+      padding: 20px 16px;
+    }
+
+    .bubu-ask-img {
+      width: 110px;
+      height: 110px;
+      object-fit: contain;
+      margin: 0 auto 10px;
+      display: block;
+    }
+
+    .ask-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 19px;
+      color: #800f2f;
+      margin-bottom: 6px;
+    }
+
+    .ask-sub {
+      font-size: 13px;
+      color: #6d4c51;
+      margin-bottom: 16px;
+    }
+
+    .btn-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn-yes {
+      background: linear-gradient(135deg, #ff4d6d, #c9184a);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 14px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(201, 24, 74, 0.28);
+      transition: transform 0.2s ease;
+    }
+
+    .btn-no {
+      background: #ffffff;
+      color: #a4133c;
+      border: 1.5px solid #ffb3c1;
+      padding: 11px 20px;
+      border-radius: 14px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 13.5px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .cute-nudge {
+      margin-top: 14px;
+      font-size: 13px;
+      color: #c9184a;
+      font-weight: 500;
+      min-height: 20px;
+      line-height: 1.5;
+    }
+
+    .final-celebration {
+      display: none;
+      margin-top: 16px;
+      padding: 16px;
+      background: #ffffff;
+      border-radius: 16px;
+      border: 1px solid #ffccd5;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .final-celebration img {
+      width: 115px;
+      height: 115px;
+      object-fit: contain;
+      margin-bottom: 8px;
+    }
+
+    .heart {
+      position: fixed;
+      bottom: -20px;
+      font-size: 18px;
+      color: #ff758f;
+      opacity: 0.7;
+      animation: floatUp 5s linear infinite;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0) scale(0.8); opacity: 0.8; }
+      100% { transform: translateY(-105vh) scale(1.25); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Cute Bubu Dudu Sorry GIF -->
+    <img class="bubu-dudu-top" src="https://tenor.com" onerror="this.src='https://tenor.com'" alt="Cute Bear Sorry">
+
+    <div class="badge">Sirf Tumhare Liye, Tanishi ❤️</div>
+    <h1>I'm Really Sorry, Tanishi</h1>
+    <p class="subtitle">Take your time reading this... no rush, no arguments.</p>
+
+    <!-- Hinglish Poem -->
+    <div class="poem-box">
+      <div class="stanza">
+        Kandhon tak aati teri woh chhoti si zulfon ki ladi,<br>
+        Aur teri woh pyaari si muskaan, jo aaj kahin kho si gayi hai.<br>
+        Jaanta hoon mere saath hokar bhi tujhe meri kami si mehsoos hoti hai,<br>
+        Aur andar hi andar tu khud ko le kar thodi insecure si rehti hai.
+      </div>
+
+      <div class="stanza">
+        Kuch purane zakhm hain tere kal ke, jo abhi tak bhare nahi,<br>
+        Aur kuch meri galtiyon ke nishaan, jo abhi tak mitaaye gaye nahi.<br>
+        Par main is har kami ko bharna chahta hoon, khud ko sach mein badal kar,<br>
+        Tujhe woh saara pyaar dena chahta hoon, har ek pal mein dhal kar.
+      </div>
+
+      <div class="stanza">
+        Bas ek baar mera haath thaam kar mere saamne baith ja,<br>
+        Apne dil ki har uljhan, har darr mujhse khul kar keh ja.<br>
+        Main koi behas nahi karunga, bas teri har baat sunna chahta hoon,<br>
+        Teri us khoyi hui muskaan ko phir se wapas laana chahta hoon.
+      </div>
+    </div>
+
+    <!-- Personal Promise Section -->
+    <div class="promise-card">
+      <h3>Mera Vaada Tumse, Tanishi 🤝</h3>
+      <p>
+        "Main sach mein badlunga, Tanishi... bas ek baar haath pakad lo mera. Meri help karo, mujhe guide karo—hum saath baith kar communication karenge, aur sab kuch saath mil kar theek karenge. Main har kadam par tumhare saath hoon."
+      </p>
+    </div>
+
+    <!-- Mini Mood Lifter Game -->
+    <div class="game-box">
+      <div class="game-title">Gussa Kam Karne Wala Mini Game 🎮</div>
+      <div class="game-sub">Tap 10 hearts to melt a little bit of anger!</div>
+      <div id="gameArea"></div>
+      <div class="game-stats">
+        <span>Hearts Caught: <strong id="score">0</strong> / 10</span>
+        <button class="mini-btn" onclick="startGame()">Start / Reset</button>
+      </div>
+    </div>
+
+    <!-- Interactive Yes / No Proposal to Talk Tomorrow -->
+    <div class="ask-box">
+      <img class="bubu-ask-img" id="askSticker" src="https://tenor.com" onerror="this.style.display='none'" alt="Cute Bear Please">
+      <div class="ask-title">Please forgive me, Tanishi 🥺</div>
+      <div class="ask-sub">Let's meet and talk tomorrow face to face?</div>
+
+      <div class="btn-row" id="btnRow">
+        <button class="btn-yes" id="yesBtn" onclick="handleYes()">Yes, let's talk ❤️</button>
+        <button class="btn-no" id="noBtn" onclick="handleNo()">No 😤</button>
+      </div>
+
+      <div class="cute-nudge" id="cuteNudge"></div>
+
+      <div class="final-celebration" id="finalCelebration">
+        <div style="font-size: 38px; margin-bottom: 6px;">🐻❤️🐼</div>
+        <strong style="color: #800f2f; font-size: 16px;">Yay! Thank you so much, Tanishi! 🥰</strong>
+        <p style="font-size: 13px; color: #590d22; margin-top: 6px; line-height: 1.55;">
+          Kal face-to-face milte hain—main bina kisi behas ke sirf tumhari baat sununga. Bas mujhe ek text kar dena kab milna hai! ❤️
+        </p>
+      </div>
+    </div>
