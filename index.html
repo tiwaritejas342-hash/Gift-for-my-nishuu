@@ -24,7 +24,7 @@
     }
 
     .container {
-      background: rgba(255, 255, 255, 0.92);
+      background: rgba(255, 255, 255, 0.94);
       backdrop-filter: blur(10px);
       border-radius: 26px;
       padding: 26px 20px;
@@ -43,13 +43,19 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    .bubu-dudu-top {
-      width: 120px;
-      height: 120px;
-      object-fit: contain;
-      margin: 0 auto 8px;
-      display: block;
-      border-radius: 16px;
+    /* Cute Bouncing Bubu Dudu Illustration */
+    .bears-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 10px;
+      animation: gentleBounce 2.2s infinite ease-in-out;
+    }
+
+    @keyframes gentleBounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
     }
 
     .badge {
@@ -145,26 +151,40 @@
     #gameArea {
       position: relative;
       width: 100%;
-      height: 150px;
+      height: 160px;
       background: #fff8f9;
       border-radius: 14px;
       overflow: hidden;
-      border: 1px solid #ffccd5;
-      margin-bottom: 10px;
+      border: 1.5px solid #ffccd5;
+      margin-bottom: 12px;
       touch-action: manipulation;
     }
 
-    .tap-heart {
+    #targetHeart {
       position: absolute;
-      font-size: 26px;
+      font-size: 34px;
       cursor: pointer;
       user-select: none;
-      animation: popIn 0.25s ease;
+      -webkit-tap-highlight-color: transparent;
+      transition: left 0.35s ease, top 0.35s ease, transform 0.15s ease;
+      padding: 6px;
     }
 
-    @keyframes popIn {
-      from { transform: scale(0); }
-      to { transform: scale(1); }
+    #targetHeart:active {
+      transform: scale(1.35);
+    }
+
+    .game-win-msg {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      padding: 12px;
+      font-weight: 600;
+      color: #c9184a;
+      font-size: 13.5px;
+      line-height: 1.5;
     }
 
     .game-stats {
@@ -180,7 +200,7 @@
       background: #ff4d6d;
       color: white;
       border: none;
-      padding: 6px 14px;
+      padding: 7px 14px;
       border-radius: 10px;
       font-size: 12px;
       font-weight: 500;
@@ -193,14 +213,6 @@
       border: 1.5px solid #ffb3c1;
       border-radius: 20px;
       padding: 20px 16px;
-    }
-
-    .bubu-ask-img {
-      width: 110px;
-      height: 110px;
-      object-fit: contain;
-      margin: 0 auto 10px;
-      display: block;
     }
 
     .ask-title {
@@ -270,13 +282,6 @@
       animation: fadeIn 0.5s ease;
     }
 
-    .final-celebration img {
-      width: 115px;
-      height: 115px;
-      object-fit: contain;
-      margin-bottom: 8px;
-    }
-
     .heart {
       position: fixed;
       bottom: -20px;
@@ -297,8 +302,35 @@
 <body>
 
   <div class="container">
-    <!-- Cute Bubu Dudu Sorry GIF -->
-    <img class="bubu-dudu-top" src="https://tenor.com" onerror="this.src='https://tenor.com'" alt="Cute Bear Sorry">
+    <!-- Cute Bubu & Dudu Bears Illustration -->
+    <div class="bears-wrapper">
+      <!-- White Bear (Bubu) -->
+      <svg width="68" height="68" viewBox="0 0 100 100">
+        <circle cx="28" cy="28" r="14" fill="#ffffff" stroke="#5c4033" stroke-width="4"/>
+        <circle cx="72" cy="28" r="14" fill="#ffffff" stroke="#5c4033" stroke-width="4"/>
+        <ellipse cx="50" cy="56" rx="36" ry="32" fill="#ffffff" stroke="#5c4033" stroke-width="4"/>
+        <circle cx="38" cy="50" r="4" fill="#3d2b2e"/>
+        <circle cx="62" cy="50" r="4" fill="#3d2b2e"/>
+        <ellipse cx="28" cy="58" rx="6" ry="3.5" fill="#ff9ebb"/>
+        <ellipse cx="72" cy="58" rx="6" ry="3.5" fill="#ff9ebb"/>
+        <ellipse cx="50" cy="58" rx="5" ry="3.5" fill="#3d2b2e"/>
+        <path d="M44 65 Q50 71 56 65" stroke="#3d2b2e" stroke-width="3" fill="none" stroke-linecap="round"/>
+      </svg>
+      <span style="font-size: 22px;">🥺❤️</span>
+      <!-- Brown Bear (Dudu) -->
+      <svg width="68" height="68" viewBox="0 0 100 100">
+        <circle cx="28" cy="28" r="14" fill="#a47148" stroke="#5c4033" stroke-width="4"/>
+        <circle cx="72" cy="28" r="14" fill="#a47148" stroke="#5c4033" stroke-width="4"/>
+        <ellipse cx="50" cy="56" rx="36" ry="32" fill="#a47148" stroke="#5c4033" stroke-width="4"/>
+        <ellipse cx="50" cy="61" rx="14" ry="11" fill="#f3d5b5"/>
+        <circle cx="38" cy="50" r="4" fill="#3d2b2e"/>
+        <circle cx="62" cy="50" r="4" fill="#3d2b2e"/>
+        <ellipse cx="28" cy="58" rx="6" ry="3.5" fill="#ff8fa3"/>
+        <ellipse cx="72" cy="58" rx="6" ry="3.5" fill="#ff8fa3"/>
+        <ellipse cx="50" cy="57" rx="5" ry="3.5" fill="#3d2b2e"/>
+        <path d="M45 64 Q50 69 55 64" stroke="#3d2b2e" stroke-width="3" fill="none" stroke-linecap="round"/>
+      </svg>
+    </div>
 
     <div class="badge">Sirf Tumhare Liye, Tanishi ❤️</div>
     <h1>I'm Really Sorry, Tanishi</h1>
@@ -332,39 +364,4 @@
     <div class="promise-card">
       <h3>Mera Vaada Tumse, Tanishi 🤝</h3>
       <p>
-        "Main sach mein badlunga, Tanishi... bas ek baar haath pakad lo mera. Meri help karo, mujhe guide karo—hum saath baith kar communication karenge, aur sab kuch saath mil kar theek karenge. Main har kadam par tumhare saath hoon."
-      </p>
-    </div>
-
-    <!-- Mini Mood Lifter Game -->
-    <div class="game-box">
-      <div class="game-title">Gussa Kam Karne Wala Mini Game 🎮</div>
-      <div class="game-sub">Tap 10 hearts to melt a little bit of anger!</div>
-      <div id="gameArea"></div>
-      <div class="game-stats">
-        <span>Hearts Caught: <strong id="score">0</strong> / 10</span>
-        <button class="mini-btn" onclick="startGame()">Start / Reset</button>
-      </div>
-    </div>
-
-    <!-- Interactive Yes / No Proposal to Talk Tomorrow -->
-    <div class="ask-box">
-      <img class="bubu-ask-img" id="askSticker" src="https://tenor.com" onerror="this.style.display='none'" alt="Cute Bear Please">
-      <div class="ask-title">Please forgive me, Tanishi 🥺</div>
-      <div class="ask-sub">Let's meet and talk tomorrow face to face?</div>
-
-      <div class="btn-row" id="btnRow">
-        <button class="btn-yes" id="yesBtn" onclick="handleYes()">Yes, let's talk ❤️</button>
-        <button class="btn-no" id="noBtn" onclick="handleNo()">No 😤</button>
-      </div>
-
-      <div class="cute-nudge" id="cuteNudge"></div>
-
-      <div class="final-celebration" id="finalCelebration">
-        <div style="font-size: 38px; margin-bottom: 6px;">🐻❤️🐼</div>
-        <strong style="color: #800f2f; font-size: 16px;">Yay! Thank you so much, Tanishi! 🥰</strong>
-        <p style="font-size: 13px; color: #590d22; margin-top: 6px; line-height: 1.55;">
-          Kal face-to-face milte hain—main bina kisi behas ke sirf tumhari baat sununga. Bas mujhe ek text kar dena kab milna hai! ❤️
-        </p>
-      </div>
-    </div>
+  
